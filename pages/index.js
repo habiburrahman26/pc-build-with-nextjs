@@ -4,6 +4,7 @@ import styles from '@/styles/Home.module.css';
 import RootLayout from '@/layout/RootLayout';
 import { Card, Col, Row, Space, Typography } from 'antd';
 import { StarFilled } from '@ant-design/icons';
+import Link from 'next/link';
 
 const { Meta } = Card;
 
@@ -19,7 +20,7 @@ export default function Home() {
         <Typography.Title level={3} style={{ textAlign: 'center' }}>
           Featured product
         </Typography.Title>
-        <Row gutter={[4,4]} justify="center">
+        <Row gutter={[4, 4]} justify="center">
           {[1, 2, 3, 4, 5, 6].map((p) => (
             <Col key={p} xs={16} sm={12} md={4}>
               <Card
@@ -49,6 +50,44 @@ export default function Home() {
             </Col>
           ))}
         </Row>
+      </section>
+
+      <section
+        style={{
+          padding: '16px',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+        }}
+      >
+        <Typography.Title level={3} style={{ textAlign: 'center' }}>Featured Category</Typography.Title>
+        <Space size="middle" wrap>
+          <Link href="/processor">
+            <Card hoverable>Processor</Card>
+          </Link>
+
+          <Link href="/motherboard">
+            <Card hoverable>Motherboard</Card>
+          </Link>
+
+          <Link href="/ram">
+            <Card hoverable>RAM</Card>
+          </Link>
+
+          <Link href="/power-supply">
+            <Card hoverable>Power Supply Unit</Card>
+          </Link>
+
+          <Link href="/storage-device">
+            <Card hoverable>Storage Device</Card>
+          </Link>
+          <Link href="/monitor">
+            <Card hoverable>Monitor</Card>
+          </Link>
+          <Link href="/others">
+            <Card hoverable>Others</Card>
+          </Link>
+        </Space>
       </section>
     </>
   );
