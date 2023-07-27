@@ -22,7 +22,7 @@ export default function Home() {
         </Typography.Title>
         <Row gutter={[4, 4]} justify="center">
           {[1, 2, 3, 4, 5, 6].map((p) => (
-            <Col key={p} xs={16} sm={12} md={4}>
+            <Col key={p} xs={16} sm={12} md={8} lg={6} xl={4}>
               <Card
                 hoverable
                 style={{ width: 240 }}

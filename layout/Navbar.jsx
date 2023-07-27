@@ -55,7 +55,7 @@ const Navbar = () => {
   return (
     <Layout>
       <Header className="navbar-header">
-        <Row justify="center" align="middle">
+        <Row justify="center">
           <Col xs={20} sm={20} md={4}>
             <Link
               href="/"

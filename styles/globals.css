@@ -19,6 +19,7 @@ a {
   background-color: #fff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   padding: 0;
+  align-items: start !important;
 }
 
 .nav-drawer ul,
