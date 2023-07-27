@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -16,6 +15,18 @@ a {
   text-decoration: none;
 }
 
-.navbar-layout{
-  background-color: red;
+.navbar-header {
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 0;
+}
+
+.nav-drawer ul,
+.nav-drawer div{
+  border: none !important;
+}
+
+.menu {
+  border: 0;
+  justify-content: center;
 }

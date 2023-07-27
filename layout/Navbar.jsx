@@ -21,23 +21,23 @@ const items = [
   },
   {
     key: '3',
-    label: 'RAM',
+    label: <Link href="ram">RAM</Link>,
   },
   {
     key: '4',
-    label: 'Power Supply Unit',
+    label: <Link href="power-supply">Power Supply Unit</Link>,
   },
   {
     key: '5',
-    label: 'Storage Device',
+    label: <Link href="storage-device">Storage Device</Link>,
   },
   {
     key: '6',
-    label: 'Monitor',
+    label: <Link href="monitor">Monitor</Link>,
   },
   {
     key: '7',
-    label: 'Others',
+    label: <Link href="others">Others</Link>,
   },
 ];
 
@@ -53,14 +53,20 @@ const Navbar = () => {
   };
 
   return (
-    <Layout className="navbar-layout">
-      <Header style={{ padding: 0, background: '#fff' }}>
-        <Row justify="space-between" align="middle">
+    <Layout>
+      <Header className="navbar-header">
+        <Row justify="center" align="middle">
           <Col xs={20} sm={20} md={4}>
-            <div style={{ paddingLeft: '20px' }}>My Logo</div>
+            <Link
+              href="/"
+              style={{ paddingLeft: '20px', fontSize: '22px', fontWeight: 600 }}
+            >
+              Moon Light
+            </Link>
           </Col>
-          <Col xs={0} sm={0} md={20}>
+          <Col xs={0} sm={0} md={16}>
             <Menu
+              className="menu"
               mode="horizontal"
               items={[
                 { label: 'Home' },
@@ -71,7 +77,15 @@ const Navbar = () => {
               ]}
             ></Menu>
           </Col>
-          <Col xs={2} sm={2} md={0}>
+          <Col xs={0} sm={0} md={4}>
+            <Button type="primary" style={{ marginRight: '10px' }}>
+              <Link href="/pc-build">PC Builder</Link>
+            </Button>
+            <Button>
+              <Link href="/sign-in">Sign in</Link>
+            </Button>
+          </Col>
+          <Col xs={4} sm={4} md={0}>
             <Button type="primary" onClick={showDrawer}>
               <MenuOutlined />
             </Button>
@@ -82,18 +96,33 @@ const Navbar = () => {
           placement="right"
           onClick={onClose}
           onClose={onClose}
-          visible={visible}
+          open={visible}
+          className='nav-drawer'
         >
-          <Menu mode="vertical">
-            <Menu.Item icon={<HomeOutlined />}>Home</Menu.Item>
-            <Menu.Item icon={<UserOutlined />}>Profile</Menu.Item>
-            <Menu.Item icon={<SettingOutlined />}>Settings</Menu.Item>
-            <Menu.Item>
-              <Button type="primary" style={{ marginRight: '10px' }}>
-                Sign in
-              </Button>
-            </Menu.Item>
-          </Menu>
+          <Menu
+            mode="vertical"
+            items={[
+              { label: 'Home' },
+              {
+                label: 'Categories',
+                children: items,
+              },
+              {
+                label: (
+                  <Button type="primary" style={{ marginRight: '10px' }}>
+                    <Link href="/pc-build">PC Builder</Link>
+                  </Button>
+                ),
+              },
+              {
+                label: (
+                  <Button>
+                    <Link href="/sign-in">Sign in</Link>
+                  </Button>
+                ),
+              },
+            ]}
+          ></Menu>
         </Drawer>
       </Header>
     </Layout>
