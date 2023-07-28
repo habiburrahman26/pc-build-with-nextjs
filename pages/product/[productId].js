@@ -5,6 +5,10 @@ import Image from 'next/image';
 import React from 'react';
 
 const ProductDetailsPage = ({ product }) => {
+  if (!product) {
+    return <Typography.Title level={4}>No Product Found!</Typography.Title>;
+  }
+
   const items = [
     {
       key: '1',
@@ -98,7 +102,7 @@ const ProductDetailsPage = ({ product }) => {
 export default ProductDetailsPage;
 
 export async function getStaticPaths() {
-  const res = await fetch(`http://localhost:5000/products`);
+  const res = await fetch(`https://pc-builder-backend-habiburrahman26.vercel.app/products`);
   const data = await res.json();
 
   const paths = data?.data.map((p) => ({
@@ -109,7 +113,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: true,
+    fallback: 'blocking',
   };
 }
 
@@ -117,7 +121,7 @@ export async function getStaticProps(context) {
   const { productId } = context.params;
 
   const res = await fetch(
-    `http://localhost:5000/get-single-product/${productId}`
+    `https://pc-builder-backend-habiburrahman26.vercel.app/get-single-product/${productId}`
   );
   const data = await res.json();
 

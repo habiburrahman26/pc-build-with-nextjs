@@ -104,12 +104,12 @@ export default function Home({ products }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`http://localhost:5000/products`);
+  const res = await fetch(`https://pc-builder-backend-habiburrahman26.vercel.app/products`);
   const data = await res.json();
 
   return {
     props: {
-      products: data.data,
+      products: data.data
     },
   };
 }

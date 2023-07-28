@@ -56,26 +56,10 @@ const AddToolPage = ({ products }) => {
 
 export default AddToolPage;
 
-export async function getStaticPaths() {
-  const res = await fetch(`http://localhost:5000/products`);
-  const data = await res.json();
-
-  const paths = data?.data.map((p) => ({
-    params: {
-      toolName: p._id,
-    },
-  }));
-
-  return {
-    paths,
-    fallback: true,
-  };
-}
-
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const { toolName } = context.params;
 
-  const res = await fetch(`http://localhost:5000/products/${toolName}`);
+  const res = await fetch(`https://pc-builder-backend-habiburrahman26.vercel.app/products/${toolName}`);
   const data = await res.json();
 
   return {

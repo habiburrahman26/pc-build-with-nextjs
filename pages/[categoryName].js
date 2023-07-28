@@ -45,7 +45,7 @@ const CategorySinglePage = ({ product }) => {
 export default CategorySinglePage;
 
 export async function getStaticPaths() {
-  const res = await fetch(`http://localhost:5000/products`);
+  const res = await fetch(`https://pc-builder-backend-habiburrahman26.vercel.app/products`);
   const data = await res.json();
 
   const paths = data?.data.map((p) => ({
@@ -63,7 +63,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const { categoryName } = context.params;
 
-  const res = await fetch(`http://localhost:5000/products/${categoryName}`);
+  const res = await fetch(`https://pc-builder-backend-habiburrahman26.vercel.app/products/${categoryName}`);
   const data = await res.json();
 
   return {
