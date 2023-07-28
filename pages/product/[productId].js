@@ -22,8 +22,8 @@ const ProductDetailsPage = ({ product }) => {
               {product?.average_rating} out of 5
             </Typography.Title>
           </Space>
-          {product.reviews.length > 0 ? (
-            product.reviews.map((r, i) => (
+          {product?.reviews.length > 0 ? (
+            product?.reviews.map((r, i) => (
               <Space key={i} direction="vertical">
                 <Space>
                   <Avatar size="large" icon={<UserOutlined />} />

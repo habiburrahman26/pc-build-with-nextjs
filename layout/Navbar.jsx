@@ -119,9 +119,17 @@ const Navbar = () => {
               },
               {
                 label: (
-                  <Button>
-                    <Link href="/sign-in">Sign in</Link>
-                  </Button>
+                  <>
+                    {session?.user?.email ? (
+                      <Button type="primary" danger onClick={() => signOut()}>
+                        Logout
+                      </Button>
+                    ) : (
+                      <Button>
+                        <Link href="/sign-in">Sign in</Link>
+                      </Button>
+                    )}
+                  </>
                 ),
               },
             ]}
