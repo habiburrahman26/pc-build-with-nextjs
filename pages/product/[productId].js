@@ -55,7 +55,7 @@ const items = [
 
 const ProductDetailsPage = () => {
   return (
-    <section className='details-section'>
+    <section className='details-section' style={{}}>
       <div className="details-header">
         <div>
           <Image

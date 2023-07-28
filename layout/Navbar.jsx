@@ -80,7 +80,7 @@ const Navbar = () => {
           </Col>
           <Col xs={0} sm={0} md={4}>
             <Button type="primary" style={{ marginRight: '10px' }}>
-              <Link href="/pc-build">PC Builder</Link>
+              <Link href="/tool/pc-builder">PC Builder</Link>
             </Button>
             <Button>
               <Link href="/sign-in">Sign in</Link>

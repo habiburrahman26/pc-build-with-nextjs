@@ -16,6 +16,23 @@ a {
   text-decoration: none;
 }
 
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-vertical{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.border-bottom{
+  padding: 12px 4px;
+  border-bottom: 1px solid #E8E2E2;
+}
+
 .navbar-header {
   background-color: #fff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -33,16 +50,10 @@ a {
   justify-content: center;
 }
 
-.flex-between {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .details-section {
   padding: 20px;
-  background: '#fff';
-  min-height: '100vh';
+  min-height: 100vh;
+  background: #fff;
 }
 
 .details-header {
@@ -62,10 +73,6 @@ a {
   margin-bottom: 12px;
 }
 
-.product-tab {
-  /* font-size: 6px; */
-}
-
 .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab-active {
   background: #3a98b9;
   color: #fff;
@@ -76,11 +83,34 @@ a {
   color: #fff;
 }
 
+.pc-build {
+  max-width: 700px;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 16px auto;
+  background: #fff;
+}
+
+.price-item-card {
+  background: #3749bb;
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+
+.core-heading{
+  margin: 24px 0 0 0;
+  color: #fff;
+  padding: 1.5px 8px;
+  font-weight: 500;
+  background-color: #808996;
+  border-radius: 4px;
+}
+
 @media only screen and (max-width: 768px) {
   .details-header {
     padding: 20px 4px;
   }
-  
+
   .details-header {
     flex-direction: column;
     gap: 10px;
