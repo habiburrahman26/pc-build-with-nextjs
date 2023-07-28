@@ -69,12 +69,13 @@ const Navbar = () => {
               className="menu"
               mode="horizontal"
               items={[
-                { label: 'Home' },
+                { label: <Link href="/">Home</Link> },
                 {
                   label: 'Categories',
                   children: items,
                 },
               ]}
+              onClick={()=>{}}
             ></Menu>
           </Col>
           <Col xs={0} sm={0} md={4}>
@@ -97,7 +98,7 @@ const Navbar = () => {
           onClick={onClose}
           onClose={onClose}
           open={visible}
-          className='nav-drawer'
+          className="nav-drawer"
         >
           <Menu
             mode="vertical"
