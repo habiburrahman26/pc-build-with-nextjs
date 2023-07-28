@@ -105,6 +105,6 @@ export async function getStaticProps() {
 }
 
 
-Home.getLayout = function getLayout(page) {
-  return <RootLayout>{page}</RootLayout>;
-};
+// Home.getLayout = function getLayout(page) {
+//   return <RootLayout>{page}</RootLayout>;
+// };

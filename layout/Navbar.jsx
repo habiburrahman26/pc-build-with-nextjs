@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Layout, Menu, Button, Drawer, Row, Col, Dropdown, Space } from 'antd';
 import { MenuOutlined, UnorderedListOutlined } from '@ant-design/icons';
 import Link from 'next/link';
+import { useSession, signOut } from 'next-auth/react';
 
 const { Header } = Layout;
 
@@ -37,6 +38,7 @@ const items = [
 ];
 
 const Navbar = () => {
+  const { data: session } = useSession();
   const [visible, setVisible] = useState(false);
 
   const showDrawer = () => {
@@ -76,9 +78,15 @@ const Navbar = () => {
             <Button type="primary" style={{ marginRight: '10px' }}>
               <Link href="/tool/pc-builder">PC Builder</Link>
             </Button>
-            <Button>
-              <Link href="/sign-in">Sign in</Link>
-            </Button>
+            {session?.user?.email ? (
+              <Button type="primary" danger onClick={() => signOut()}>
+                Logout
+              </Button>
+            ) : (
+              <Button>
+                <Link href="/sign-in">Sign in</Link>
+              </Button>
+            )}
           </Col>
           <Col xs={4} sm={4} md={0}>
             <Button type="primary" onClick={showDrawer}>

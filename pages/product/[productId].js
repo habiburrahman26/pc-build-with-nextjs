@@ -77,7 +77,7 @@ const ProductDetailsPage = ({ product }) => {
 
           <Typography.Title level={5}>Key Features</Typography.Title>
           <Space direction="vertical">
-            {keyFeatures.map((f, i) => (
+            {keyFeatures?.map((f, i) => (
               <Typography.Text key={i}>{f}</Typography.Text>
             ))}
           </Space>
@@ -127,7 +127,3 @@ export async function getStaticProps(context) {
     },
   };
 }
-
-ProductDetailsPage.getLayout = function getLayout(page) {
-  return <RootLayout>{page}</RootLayout>;
-};

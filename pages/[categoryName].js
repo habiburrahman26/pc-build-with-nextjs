@@ -11,7 +11,7 @@ const CategorySinglePage = ({ product }) => {
   return (
     <div style={{ padding: 16 }}>
       <Row gutter={[4, 4]} justify="center" wrap>
-        {product.map((p) => (
+        {product?.map((p) => (
           <Col key={p._id} xs={16} sm={12} md={8} lg={6} xl={4}>
             <Link href={`/product/${p._id}`}>
               <Card
@@ -73,6 +73,3 @@ export async function getStaticProps(context) {
   };
 }
 
-CategorySinglePage.getLayout = function getLayout(page) {
-  return <RootLayout>{page}</RootLayout>;
-};

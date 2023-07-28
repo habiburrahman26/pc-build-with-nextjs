@@ -48,7 +48,3 @@ const AddToolPage = () => {
 };
 
 export default AddToolPage;
-
-AddToolPage.getLayout = function getLayout(page) {
-  return <RootLayout>{page}</RootLayout>;
-};
