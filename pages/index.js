@@ -21,14 +21,14 @@ export default function Home({products}) {
           Featured product
         </Typography.Title>
         <Row gutter={[4, 8]} justify="center">
-          {products?.map((p) => (
+          {products.map((p) => (
             <Col key={p._id} xs={16} sm={12} md={8} lg={6} xl={4}>
             <Link href={`/product/${p._id}`}>
               <Card
                 hoverable
                 style={{ width: 240 }}
                 cover={
-                  <Image alt="example" src={p.image} width={200} height={220} />
+                  <Image alt="example" src={p.image} width={190} height={210} />
                 }
               >
                 <Meta title={p.name} />

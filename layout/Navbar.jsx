@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Layout, Menu, Button, Drawer, Row, Col, Dropdown, Space } from 'antd';
-import { MenuOutlined } from '@ant-design/icons';
+import { MenuOutlined, UnorderedListOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 
 const { Header } = Layout;
@@ -64,13 +64,12 @@ const Navbar = () => {
               className="menu"
               mode="horizontal"
               items={[
-                { label: <Link href="/">Home</Link> },
                 {
                   label: 'Categories',
+                  icon: <UnorderedListOutlined />,
                   children: items,
                 },
               ]}
-              onClick={() => {}}
             ></Menu>
           </Col>
           <Col xs={0} sm={0} md={4}>
