@@ -5,10 +5,12 @@ import RootLayout from '@/layout/RootLayout';
 import { Card, Col, Row, Space, Typography } from 'antd';
 import { StarFilled } from '@ant-design/icons';
 import Link from 'next/link';
+import Footer from '@/layout/Footer';
+import Banner from '@/components/ui/Banner';
 
 const { Meta } = Card;
 
-export default function Home({products}) {
+export default function Home({ products }) {
   return (
     <>
       <Head>
@@ -16,6 +18,7 @@ export default function Home({products}) {
         <meta name="description" content="This is home page" />
       </Head>
 
+      <Banner />
       <section style={{ padding: '16px' }}>
         <Typography.Title level={3} style={{ textAlign: 'center' }}>
           Featured product
@@ -23,29 +26,34 @@ export default function Home({products}) {
         <Row gutter={[4, 8]} justify="center">
           {products.map((p) => (
             <Col key={p._id} xs={16} sm={12} md={8} lg={6} xl={4}>
-            <Link href={`/product/${p._id}`}>
-              <Card
-                hoverable
-                style={{ width: 240 }}
-                cover={
-                  <Image alt="example" src={p.image} width={190} height={210} />
-                }
-              >
-                <Meta title={p.name} />
-                <div className="flex-between" style={{ padding: '4px 0' }}>
-                  <Typography.Text>{p.category}</Typography.Text>
-                  <Typography.Text>{p.status}</Typography.Text>
-                </div>
-                <div className="flex-between">
-                  <Typography.Title level={5}>{p.price}৳</Typography.Title>
-                  <Typography.Text>
-                    <StarFilled style={{ color: '#FD8D14' }} />{' '}
-                    {p.individual_rating}
-                  </Typography.Text>
-                </div>
-              </Card>
-            </Link>
-          </Col>
+              <Link href={`/product/${p._id}`}>
+                <Card
+                  hoverable
+                  style={{ width: 240 }}
+                  cover={
+                    <Image
+                      alt="example"
+                      src={p.image}
+                      width={190}
+                      height={210}
+                    />
+                  }
+                >
+                  <Meta title={p.name} />
+                  <div className="flex-between" style={{ padding: '4px 0' }}>
+                    <Typography.Text>{p.category}</Typography.Text>
+                    <Typography.Text>{p.status}</Typography.Text>
+                  </div>
+                  <div className="flex-between">
+                    <Typography.Title level={5}>{p.price}৳</Typography.Title>
+                    <Typography.Text>
+                      <StarFilled style={{ color: '#FD8D14' }} />{' '}
+                      {p.individual_rating}
+                    </Typography.Text>
+                  </div>
+                </Card>
+              </Link>
+            </Col>
           ))}
         </Row>
       </section>
@@ -56,6 +64,7 @@ export default function Home({products}) {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
+          marginBottom: 10,
         }}
       >
         <Typography.Title level={3} style={{ textAlign: 'center' }}>
@@ -89,6 +98,7 @@ export default function Home({products}) {
           </Link>
         </Space>
       </section>
+      <Footer />
     </>
   );
 }
@@ -103,7 +113,6 @@ export async function getStaticProps() {
     },
   };
 }
-
 
 // Home.getLayout = function getLayout(page) {
 //   return <RootLayout>{page}</RootLayout>;
