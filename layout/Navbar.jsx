@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import { Layout, Menu, Button, Drawer, Row, Col, Dropdown, Space } from 'antd';
-import {
-  HomeOutlined,
-  UserOutlined,
-  SettingOutlined,
-  MenuOutlined,
-} from '@ant-design/icons';
+import { MenuOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 
 const { Header } = Layout;
@@ -13,31 +8,31 @@ const { Header } = Layout;
 const items = [
   {
     key: '1',
-    label: <Link href="processor">Processor</Link>,
+    label: <Link href="/processor">Processor</Link>,
   },
   {
     key: '2',
-    label: <Link href="motherboard">Motherboard</Link>,
+    label: <Link href="/motherboard">Motherboard</Link>,
   },
   {
     key: '3',
-    label: <Link href="ram">RAM</Link>,
+    label: <Link href="/ram">RAM</Link>,
   },
   {
     key: '4',
-    label: <Link href="power-supply">Power Supply Unit</Link>,
+    label: <Link href="/power-supply">Power Supply Unit</Link>,
   },
   {
     key: '5',
-    label: <Link href="storage-device">Storage Device</Link>,
+    label: <Link href="/storage-device">Storage Device</Link>,
   },
   {
     key: '6',
-    label: <Link href="monitor">Monitor</Link>,
+    label: <Link href="/monitor">Monitor</Link>,
   },
   {
     key: '7',
-    label: <Link href="others">Others</Link>,
+    label: <Link href="/others">Others</Link>,
   },
 ];
 
@@ -75,7 +70,7 @@ const Navbar = () => {
                   children: items,
                 },
               ]}
-              onClick={()=>{}}
+              onClick={() => {}}
             ></Menu>
           </Col>
           <Col xs={0} sm={0} md={4}>

@@ -7,34 +7,30 @@ import React from 'react';
 
 const { Meta } = Card;
 
-const CategorySinglePage = () => {
+const CategorySinglePage = ({ product }) => {
   return (
     <div style={{ padding: 16 }}>
       <Row gutter={[4, 4]} justify="center" wrap>
-        {[1, 2, 3, 4].map((p) => (
-          <Col key={p} xs={16} sm={12} md={8} lg={6} xl={4}>
-            <Link href={`/product/1`}>
+        {product.map((p) => (
+          <Col key={p._id} xs={16} sm={12} md={8} lg={6} xl={4}>
+            <Link href={`/product/${p._id}`}>
               <Card
                 hoverable
                 style={{ width: 240 }}
                 cover={
-                  <Image
-                    alt="example"
-                    src="https://www.startech.com.bd/image/cache/catalog/monitor/msi/mp223/mp223-06-200x200.webp"
-                    width={200}
-                    height={220}
-                  />
+                  <Image alt="example" src={p.image} width={200} height={220} />
                 }
               >
-                <Meta title="Europe Street beat" />
+                <Meta title={p.name} />
                 <div className="flex-between" style={{ padding: '4px 0' }}>
-                  <Typography.Text>Monitor</Typography.Text>
-                  <Typography.Text>In stock</Typography.Text>
+                  <Typography.Text>{p.category}</Typography.Text>
+                  <Typography.Text>{p.status}</Typography.Text>
                 </div>
                 <div className="flex-between">
-                  <Typography.Title level={5}>$200</Typography.Title>
+                  <Typography.Title level={5}>{p.price}৳</Typography.Title>
                   <Typography.Text>
-                    <StarFilled style={{ color: '#FD8D14' }} /> 4
+                    <StarFilled style={{ color: '#FD8D14' }} />{' '}
+                    {p.individual_rating}
                   </Typography.Text>
                 </div>
               </Card>
@@ -47,6 +43,35 @@ const CategorySinglePage = () => {
 };
 
 export default CategorySinglePage;
+
+export async function getStaticPaths() {
+  const res = await fetch(`http://localhost:5000/products`);
+  const data = await res.json();
+
+  const paths = data?.data.map((p) => ({
+    params: {
+      categoryName: p._id,
+    },
+  }));
+
+  return {
+    paths,
+    fallback: true,
+  };
+}
+
+export async function getStaticProps(context) {
+  const { categoryName } = context.params;
+
+  const res = await fetch(`http://localhost:5000/products/${categoryName}`);
+  const data = await res.json();
+
+  return {
+    props: {
+      product: data.data,
+    },
+  };
+}
 
 CategorySinglePage.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
