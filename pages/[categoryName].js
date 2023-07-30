@@ -12,7 +12,7 @@ const CategorySinglePage = ({ product }) => {
     <div style={{ padding: 16 }}>
       <Row gutter={[4, 4]} justify="center" wrap>
         {product?.map((p) => (
-          <Col key={p._id} xs={16} sm={12} md={8} lg={6} xl={4}>
+          <Col key={p._id} xs={16} sm={12} md={8} lg={6} xl={5} xxl={4}>
             <Link href={`/product/${p._id}`}>
               <Card
                 hoverable

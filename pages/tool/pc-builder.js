@@ -1,13 +1,13 @@
-import { Button, Space, Typography, message } from 'antd';
-import { useSelector, useDispatch } from 'react-redux';
-import Link from 'next/link';
-import React from 'react';
-import Image from 'next/image';
-import { CloseOutlined } from '@ant-design/icons';
+import { Button, Space, Typography, message } from "antd";
+import { useSelector, useDispatch } from "react-redux";
+import Link from "next/link";
+import React from "react";
+import Image from "next/image";
+import { CloseOutlined } from "@ant-design/icons";
 import {
   completeBuild,
   removeToPcBuild,
-} from '@/redux/features/pcBuild/pcBuild';
+} from "@/redux/features/pcBuild/pcBuild";
 
 const PcBuilderPage = () => {
   const dispatch = useDispatch();
@@ -18,27 +18,27 @@ const PcBuilderPage = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const success = () => {
     messageApi.open({
-      type: 'success',
-      content: 'Your pc build successfully',
+      type: "success",
+      content: "Your pc build successfully",
     });
   };
 
-  const processor = items?.find((i) => i.category === 'processor');
-  const motherboard = items?.find((i) => i.category === 'motherboard');
-  const ram = items?.find((i) => i.category === 'ram');
-  const powerSupply = items?.find((i) => i.category === 'power-supply');
-  const monitor = items?.find((i) => i.category === 'monitor');
-  const storageDevice = items?.find((i) => i.category === 'storage-device');
+  const processor = items?.find((i) => i.category === "processor");
+  const motherboard = items?.find((i) => i.category === "motherboard");
+  const ram = items?.find((i) => i.category === "ram");
+  const powerSupply = items?.find((i) => i.category === "power-supply");
+  const monitor = items?.find((i) => i.category === "monitor");
+  const storageDevice = items?.find((i) => i.category === "storage-device");
 
   return (
     <section className="pc-build">
       {contextHolder}
       <div className="flex-between">
-        <Typography.Title level={5} style={{ color: '#3749BB' }}>
+        <Typography.Title level={5} style={{ color: "#3749BB" }}>
           PC Builder - Build Your Own Computer
         </Typography.Title>
         <Space className="price-item-card">
-          <Typography.Title level={4} style={{ color: '#fff', margin: 0 }}>
+          <Typography.Title level={4} style={{ color: "#fff", margin: 0 }}>
             {totalPrice}৳
           </Typography.Title>
         </Space>
@@ -50,9 +50,9 @@ const PcBuilderPage = () => {
             <Typography.Text level={5} style={{ margin: 0 }}>
               CPU
             </Typography.Text>
-            <Button>
-              <Link href="/tool/processor">Choose</Link>
-            </Button>
+            <Link href="/tool/processor">
+              <Button>Choose</Button>
+            </Link>
           </div>
           {processor && (
             <div className="flex-between">
@@ -78,9 +78,9 @@ const PcBuilderPage = () => {
             <Typography.Text level={5} style={{ margin: 0 }}>
               Motherboard
             </Typography.Text>
-            <Button>
-              <Link href="/tool/motherboard">Choose</Link>
-            </Button>
+            <Link href="/tool/motherboard">
+              <Button>Choose</Button>
+            </Link>
           </div>
           {motherboard && (
             <div className="flex-between">
@@ -106,9 +106,9 @@ const PcBuilderPage = () => {
             <Typography.Text level={5} style={{ margin: 0 }}>
               RAM
             </Typography.Text>
-            <Button>
-              <Link href="/tool/ram">Choose</Link>
-            </Button>
+            <Link href="/tool/ram">
+              <Button>Choose</Button>
+            </Link>
           </div>
           {ram && (
             <div className="flex-between">
@@ -129,9 +129,9 @@ const PcBuilderPage = () => {
             <Typography.Text level={5} style={{ margin: 0 }}>
               Power Supply Unit
             </Typography.Text>
-            <Button>
-              <Link href="/tool/power-supply">Choose</Link>
-            </Button>
+            <Link href="/tool/power-supply">
+              <Button>Choose</Button>
+            </Link>
           </div>
           {powerSupply && (
             <div className="flex-between">
@@ -157,9 +157,9 @@ const PcBuilderPage = () => {
             <Typography.Text level={5} style={{ margin: 0 }}>
               Storage Device
             </Typography.Text>
-            <Button>
-              <Link href="/tool/storage-device">Choose</Link>
-            </Button>
+            <Link href="/tool/storage-device">
+              <Button>Choose</Button>
+            </Link>
           </div>
           {storageDevice && (
             <div className="flex-between">
@@ -185,9 +185,9 @@ const PcBuilderPage = () => {
             <Typography.Text level={5} style={{ margin: 0 }}>
               Monitor
             </Typography.Text>
-            <Button>
-              <Link href="/tool/monitor">Choose</Link>
-            </Button>
+            <Link href="/tool/monitor">
+              <Button>Choose</Button>
+            </Link>
           </div>
           {monitor && (
             <div className="flex-between">

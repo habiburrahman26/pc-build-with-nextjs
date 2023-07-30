@@ -2,7 +2,6 @@ import { addToPcBuild } from '@/redux/features/pcBuild/pcBuild';
 import { StarFilled } from '@ant-design/icons';
 import { Button, Card, Col, Row, Typography } from 'antd';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 
@@ -16,7 +15,7 @@ const AddToolPage = ({ products }) => {
     <div style={{ padding: 16 }}>
       <Row gutter={[4, 4]} justify="center" wrap>
         {products?.map((p) => (
-          <Col key={p._id} xs={16} sm={12} md={8} lg={6} xl={4}>
+          <Col key={p._id} xs={16} sm={12} md={8} lg={6} xl={5} xxl={4}>
             <Card
               hoverable
               style={{ width: 240 }}

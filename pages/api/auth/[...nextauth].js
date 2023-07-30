@@ -10,7 +10,7 @@ export const authOptions = {
     }),
   ],
   pages: {
-    signIn: '/sign-in',
+    signIn: 'https://pc-build-with-nextjs.vercel.app/sign-in',
   },
 };
 

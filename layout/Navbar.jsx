@@ -1,38 +1,38 @@
-import React, { useState } from 'react';
-import { Layout, Menu, Button, Drawer, Row, Col, Dropdown, Space } from 'antd';
-import { MenuOutlined, UnorderedListOutlined } from '@ant-design/icons';
-import Link from 'next/link';
-import { useSession, signOut } from 'next-auth/react';
+import React, { useState } from "react";
+import { Layout, Menu, Button, Drawer, Row, Col} from "antd";
+import { MenuOutlined, UnorderedListOutlined } from "@ant-design/icons";
+import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
 
 const { Header } = Layout;
 
 const items = [
   {
-    key: '1',
+    key: "1",
     label: <Link href="/processor">Processor</Link>,
   },
   {
-    key: '2',
+    key: "2",
     label: <Link href="/motherboard">Motherboard</Link>,
   },
   {
-    key: '3',
+    key: "3",
     label: <Link href="/ram">RAM</Link>,
   },
   {
-    key: '4',
+    key: "4",
     label: <Link href="/power-supply">Power Supply Unit</Link>,
   },
   {
-    key: '5',
+    key: "5",
     label: <Link href="/storage-device">Storage Device</Link>,
   },
   {
-    key: '6',
+    key: "6",
     label: <Link href="/monitor">Monitor</Link>,
   },
   {
-    key: '7',
+    key: "7",
     label: <Link href="/others">Others</Link>,
   },
 ];
@@ -56,7 +56,7 @@ const Navbar = () => {
           <Col xs={20} sm={20} md={4}>
             <Link
               href="/"
-              style={{ paddingLeft: '20px', fontSize: '22px', fontWeight: 600 }}
+              style={{ paddingLeft: "20px", fontSize: "22px", fontWeight: 600 }}
             >
               Moon Light
             </Link>
@@ -67,7 +67,7 @@ const Navbar = () => {
               mode="horizontal"
               items={[
                 {
-                  label: 'Categories',
+                  label: "Categories",
                   icon: <UnorderedListOutlined />,
                   children: items,
                 },
@@ -75,17 +75,20 @@ const Navbar = () => {
             ></Menu>
           </Col>
           <Col xs={0} sm={0} md={4}>
-            <Button type="primary" style={{ marginRight: '10px' }}>
-              <Link href="/tool/pc-builder">PC Builder</Link>
-            </Button>
+            <Link href="/tool/pc-builder">
+              <Button type="primary" style={{ marginRight: "10px" }}>
+                PC Builder
+              </Button>
+            </Link>
+
             {session?.user?.email ? (
               <Button type="primary" danger onClick={() => signOut()}>
                 Logout
               </Button>
             ) : (
-              <Button>
-                <Link href="/sign-in">Sign in</Link>
-              </Button>
+              <Link href="/sign-in">
+                <Button>Sign in</Button>
+              </Link>
             )}
           </Col>
           <Col xs={4} sm={4} md={0}>
@@ -105,16 +108,18 @@ const Navbar = () => {
           <Menu
             mode="vertical"
             items={[
-              { label: 'Home' },
+              { label: "Home" },
               {
-                label: 'Categories',
+                label: "Categories",
                 children: items,
               },
               {
                 label: (
-                  <Button type="primary" style={{ marginRight: '10px' }}>
-                    <Link href="/pc-build">PC Builder</Link>
-                  </Button>
+                  <Link href="/tool/pc-builder">
+                    <Button type="primary" style={{ marginRight: "10px" }}>
+                      PC Builder
+                    </Button>
+                  </Link>
                 ),
               },
               {
@@ -125,9 +130,9 @@ const Navbar = () => {
                         Logout
                       </Button>
                     ) : (
-                      <Button>
-                        <Link href="/sign-in">Sign in</Link>
-                      </Button>
+                      <Link href="/sign-in">
+                        <Button>Sign in</Button>
+                      </Link>
                     )}
                   </>
                 ),
